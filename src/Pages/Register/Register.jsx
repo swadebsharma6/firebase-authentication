@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser, signInWithGoogle} = useContext(AuthContext);
  
 
     const handleRegister = event =>{
@@ -29,6 +29,17 @@ const Register = () => {
       })
       
 
+    }
+
+    const handleGoogleSignIn =() =>{
+      signInWithGoogle()
+      .then(result =>{
+        const user = result.user;
+        console.log('google user', user)
+      })
+      .catch(error =>{
+        console.log(error.message)
+      })
     }
 
     return (
@@ -67,6 +78,9 @@ const Register = () => {
            </div>
              </form>
              <p className="py-4">Already have account ? Go to <Link className="text-primary font-bold" to='/login'>Login</Link> </p>
+             <div>
+             <button onClick={handleGoogleSignIn} className="btn btn-accent w-full">Google</button>
+             </div>
             </div>
           </div>
         </div>

@@ -12,6 +12,7 @@ import Login from './Pages/Login/Login';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 import AuthProvider from './Providers/AuthProvider';
+import PrivetRoutes from './components/Routes/PrivetRoutes';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/about',
-        element: <About></About>
+        element: <PrivetRoutes><About></About></PrivetRoutes>
       },
       {
         path: '/login',
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/profile',
-        element: <Profile></Profile>
+        element: <PrivetRoutes><Profile></Profile></PrivetRoutes>
       }
       
     ]

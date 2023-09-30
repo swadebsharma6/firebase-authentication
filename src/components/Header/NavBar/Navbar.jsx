@@ -47,13 +47,18 @@ const Navbar = () => {
         }
       >  Register
       </NavLink></li>
-        <li><NavLink
-        to="/profile"
-        className={({ isActive, isPending }) =>
-          isPending ? "pending" : isActive ? "text-xl text-orange-500 font-bold" : ""
+       
+        { user &&
+          <>
+          <li><NavLink
+          to="/profile"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-xl text-orange-500 font-bold" : ""
+          }
+        >  Profile
+        </NavLink></li>
+          </>
         }
-      >  Profile
-      </NavLink></li>
         
         </>
 
